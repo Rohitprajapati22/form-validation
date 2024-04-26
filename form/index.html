@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="from-box">
+            <form method="post" name="Formsubmit" onsubmit="return Form() , pass_check()" class="from">
+                <h2>Registration</h2>
+
+                <div class="content-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="fname" placeholder="First Name">
+                </div>
+
+                <div class="content-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="lname" placeholder="last Name">
+                </div>
+
+                <div class="content-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" name="Email" placeholder="Email">
+                </div>
+
+                <div class="content-box">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="number" name="phone number" placeholder="phone number">
+                </div>
+
+                <div class="content-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="Password" placeholder="Password" id="pwd1">
+                </div>
+
+                <div class="content-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="pass" placeholder="Confirm password" id="pwd2">
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Submit">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+
+        function Form() {
+            let fname = document.forms["Formsubmit"]["fname"].value;
+            let lname = document.forms["Formsubmit"]["lname"].value;
+           
+
+            if (fname == "") {
+                alert("First Name Is can't be filled out.");
+                return false;
+            }
+            else if (lname == "") {
+                alert("Last Name Is can't be filled out.");
+                return false;
+            }
+        }
+
+      
+        function pass_check() {
+            let pwd1 = document.getElementById("pwd1").value;
+            let pwd2 = document.getElementById("pwd2").value;
+            let upr;
+            let lwr;
+            let digit;
+            let sym;
+
+            if (pwd1 !== pwd2) {
+                alert("Passwords do not match");
+                return false;
+            } else if (pwd1.length < 8) {
+                alert("Password must be at least 8 characters long");
+                return false;
+            } else if (!upr.test(pwd1)) {
+                alert("Password must contain at least one uppercase letter");
+                return false;
+            } else if (!lwr.test(pwd1)) {
+                alert("Password must contain at least one lowercase letter");
+                return false;
+            } else if (!digit.test(pwd1)) {
+                alert("Password must contain at least one digit");
+                return false;
+            } else if (!sym.test(pwd1)) {
+                alert("Password must contain at least one symbol");
+                return false;
+            }
+
+            return true;
+        }
+        
+    </script>
+
+</body>
+
+</html>
